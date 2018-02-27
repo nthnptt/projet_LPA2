@@ -1,3 +1,10 @@
 language: ruby
 rvm:
 - 2.3.5
+deploy:
+  provider: heroku
+  api_key:
+    secure: djOmtWXj8M/1WcDNhUTNXxJex/Ug8PAMuFkwra00JUbcQAbzf0N1r970h/zBzTvmsWMk17JiXRHZ9foeZj8Bc6J6S3ksMywsud1pPwi1L5Lw1I++mU7GNUxnJkflt3nqXFDb6c7GZ0wq9jSRz0YxBSr0GNVW9+Hr87TuI/eJdXWN95gkVK8Vsk59tHFtoLH3SR3HzMZa5gyBOvj8lG1iwZrbT1ZIY05Kd5UyI13YGvfICnJo4TnI/E3tlkXtrdGt73xZVYz592Z/aQpyO+/CMSt4vO/JPwvr3Ut9uSbrN6CyTaMkCNXkX3C/w5Aa3EPrf+Lmu2E3M4q+y6ELmcCXWUOwK/7+HHdbYpG7RMW56c3+HBToEk9Lg2Zkx6dDmKbsz+8qPIbGFffvidN63XDb2toGkULU0fpCgFMsvOm4Fso1ULEjqtkZgqB14J6bpVSQKnV+E2Wa9/VKqR6DwqCmP8RVgmm1afgSBDYeAGg/L9uVoGcdvhBxaFVr2JQzgU7SNasZobVwntPujhec5jljqFgH1ToYHz90z+6E3SwqmispiqnYX66fQWftHLA7IJ0ib4+/7fvOntCSvhXtaZsDa0iR39JuPw7yI8CNnKsCGTddwj9/UVY117h+G9BwdFsEDCkdaY1ttF73MbaKviaNG75Y/mil3xBOIncF5+MVajQ=
+  app: projet_LPA2
+  on:
+    repo: yaman0/projet_LPA2
