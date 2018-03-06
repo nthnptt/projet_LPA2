@@ -23,4 +23,4 @@ test:
 
 production:
   <<: *default
-database: db_prod
+  database: db_prod
