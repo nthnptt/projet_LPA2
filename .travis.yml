@@ -3,7 +3,7 @@ rvm:
 - 2.3.5
 env:
   global:
-    - CC_TEST_REPORTER_ID=TsGEMw9wWbDRQfiWhcVeR5HtDJEn/d6AEFZut+BBzJrm4904NBo+ltUL5OyC/B65LdLi9U9EI7LLB2MOfdn1GxJvIdymm/f5D8hPinEJfRNPQvqogzG8pUfMolrL4XV1arptVSDKNoj3W82ccgcBakV/ocVz/Uyx4Mt+BXnRWYiAcZF8TFvr5qik1KHg1UDXb1L63xa4I10KHwBwv9wwPorIPLhT0k8L9Vhp8632y2wVkNfeHy1W4ry5VIeAQd7w6+9t5Rqbgf9V0M/qImvtOCU2CzOMyMK1KX13M5ctk23cgmvCCP2qIsnxn/2OE2mSfbedTUSdTaDTDk5GfMz3Hw+rg+vAQmo0vm2O36VmjZTRyP9ytUbqb/1yHrNfmFRnFGnwbcCDzmve03PxRQaBdWBMeAgQYzNmy1178OQD7BxE0M2o1PYC7y/Cb9RP5GbzIbMSxgchbdiyyC64bM+YwYiId/71YZ0GQxLFxuL8Hx5b0QhhpnR/luG969nTcLqnXd8NFMa1ryQ43KJ10I7LPIpqDmbrWOLtVsVtrCCxh4HtlHRe0JYbLle0mqXu8NNk80Y3dkE+gMePLd40wBZiy5Rq86M6fbbyEFZESC2WSo0xtjMjJWM91no8vCRR5EnGDrMN/uJ3+AaZ6P5FaM77RMaSaWuDrZkybSsRnZsA5OI=
+    secure: k2OyaD6lVCormc9gTTROhhCHwAgiwRmxHjUexqCYEZI11uaRVY9CA0xzpYq6elxZ9uRtykZ+nb4arZQcai+A6BMtZ6HCdLa5LvvgCRKU0VB+l5xB2NGtX/NBNYbr+16NENZx07yRNLo8MMFk280WdBkr1/FjFJF9GX8/SMdIt/EWwh5CqxpnVwVk3kG06C6v62SG7u3qh/op38Zs3ns7F4tHuVA+qTMNMchW+5lb9lc8olNJVtHn+ilwTE84gIx91rfSSy6yzbEwZ8AVrrPAWzAtqgu+IS/o+EoG2/D1Hw4mEF9nTdwfkOnn8eCjESoQ/MzCRhiSeK/7kYHiPKnyL/d2/Hd7JEEz9AC8RXSUpFskUU/7UcvBhdO7wQ1ZO83AlyqW2POXV4QhXd2izgU2zIwTUVrQpUkAdGQYSArS2gOEYVHl2HaXPaGIksIRCoDZvcJYYhXroiUuNvXmScZZ/2BYlzO4bzxzH/Uw7t8OfSfDuf7J/tjFROXpVnN96Mk12X8DUxdiMhWF6VI9bmWTjB+ZyB/j9w6kc1SOCAXvgaHRkUJhV01QAdzD5tUT4033aWcBH0CpVp8y2WzssUG1gt1EdXHNJIQp9snkrecKP5P0N04sdJfvm7pGIN88x76nYdKjJ3NU8fZlsATtZB+6FGdFLjSB9X6cEAR93eIcYmU=
 deploy:
   provider: heroku
   api_key:
@@ -11,12 +11,13 @@ deploy:
   app: projetlpa2111
   on:
     repo: yaman0/projet_LPA2
-  run: "rake db:migrate"
+  run: rake db:migrate
 before_script:
-  - psql -c 'create database db_test;' -U postgres
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - ./cc-test-reporter before-build
+- psql -c 'create database db_test;' -U postgres
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+  > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- "./cc-test-reporter before-build"
 after_script:
-  - ./cc-test-reporter format-coverage -t simplecov # Format backend coverage
-  - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
+- "./cc-test-reporter format-coverage -t simplecov"
+- if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
