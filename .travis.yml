@@ -20,5 +20,5 @@ before_script:
 script:
   - bundle exec rspec
 after_script:
-  - ./cc-test-reporter after-build -t simplecov
+  - ./cc-test-reporter format-coverage -t simplecov
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
