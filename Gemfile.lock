@@ -142,7 +142,7 @@ GEM
     turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.7)
+    uglifier (4.1.8)
       execjs (>= 0.3.0, < 3)
 
 PLATFORMS
@@ -153,7 +153,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   nominatim (~> 0.0.6)
-  pg (~> 0.18)
+  pg (~> 0.21.0)
   rails (= 4.2.7.1)
   rails_12factor
   sass-rails (~> 4.0.3)
