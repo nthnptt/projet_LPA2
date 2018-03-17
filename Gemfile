@@ -34,7 +34,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-	gem 'simplecov', group: :test
+	gem 'simplecov',require:false, group: :test
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
