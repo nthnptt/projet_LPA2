@@ -20,5 +20,5 @@ before_script:
 script:
   - bundle exec rspec
 after_script:
-  - ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.json # Format backend coverage
+  - ./cc-test-reporter format-coverage -t simplecov # Format backend coverage
   - if [[ "$TRAVIS_TEST_RESULT" == 0 ]]; then ./cc-test-reporter upload-coverage; fi
