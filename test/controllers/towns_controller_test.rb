@@ -17,11 +17,13 @@ class TownsControllerTest < ActionController::TestCase
   end
 
   test "should create town" do
-    assert_difference('Town.count') do
-      post :create, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
-    end
+    VCR.use_cassette("town_should create") do
+      assert_difference('Town.count') do
+        post :create, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
+      end
 
-    assert_redirected_to town_path(assigns(:town))
+      assert_redirected_to town_path(assigns(:town))
+    end
   end
 
   test "should show town" do
@@ -35,8 +37,10 @@ class TownsControllerTest < ActionController::TestCase
   end
 
   test "should update town" do
-    patch :update, id: @town, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
-    assert_redirected_to town_path(assigns(:town))
+    VCR.use_cassette("town_should_update") do
+      patch :update, id: @town, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
+      assert_redirected_to town_path(assigns(:town))
+    end
   end
 
   test "should destroy town" do

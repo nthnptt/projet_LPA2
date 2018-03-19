@@ -28,6 +28,10 @@ gem 'spring',        group: :development
 
 gem 'nominatim', '~> 0.0.6'
 gem 'simplecov', require: false, group: :test
+group :test do
+	gem 'webmock', '~> 3.3'
+	gem 'vcr', '~> 4.0'
+end
 group :production do
 	  gem 'rails_12factor'
 end
