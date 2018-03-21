@@ -36,7 +36,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (6.0.4)
     builder (3.2.3)
     coffee-rails (4.0.1)
@@ -55,9 +56,14 @@ GEM
     execjs (2.7.0)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
+    forecast_io (2.0.2)
+      faraday
+      hashie
+      multi_json
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashdiff (0.3.7)
+    hashie (3.5.7)
     hike (1.2.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -69,7 +75,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.6)
-    loofah (2.2.0)
+    loofah (2.2.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -85,6 +91,7 @@ GEM
       faraday
       multi_json
     pg (0.21.0)
+    public_suffix (3.0.2)
     rack (1.6.9)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -166,6 +173,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  forecast_io
   jbuilder (~> 2.0)
   jquery-rails
   nominatim (~> 0.0.6)
