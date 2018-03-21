@@ -20,5 +20,27 @@
   <%= @town.long %>
 </p>
 
+<% if @weather != nil %>
+  <p>
+    <strong>Météo:</strong>
+    <%= @weather.summary %>
+  </p>
+
+  <p>
+    <strong>Température:</strong>
+    <%= @weather.temperature %>
+  </p>
+
+  <p>
+    <strong>Humidité:</strong>
+    <%= @weather.humidity %>
+  </p>
+  <% else %>
+  <p>
+    Erreur de chargement de la météo
+  </p>
+  <% end %>
+
+
 <%= link_to 'Edit', edit_town_path(@town) %> |
 <%= link_to 'Back', towns_path %>
