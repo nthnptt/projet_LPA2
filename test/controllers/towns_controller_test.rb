@@ -26,9 +26,17 @@ class TownsControllerTest < ActionController::TestCase
     end
   end
 
+  test "should show town without weather" do
+      @town = towns(:three)
+      get :show, id: @town
+      assert_response :success
+  end
+
   test "should show town" do
-    get :show, id: @town
-    assert_response :success
+    VCR.use_cassette("should_show_town") do
+      get :show, id: @town
+      assert_response :success
+    end
   end
 
   test "should get edit" do

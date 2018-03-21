@@ -11,3 +11,9 @@ two:
   postal_code: MyString
   lat: 1.5
   long: 1.5
+
+three:
+  name: MyString3
+  postal_code: MyString3
+  lat: null
+  long: null
