@@ -17,3 +17,9 @@ three:
   postal_code: MyString3
   lat: null
   long: null
+
+void_data:
+  name: ''
+  postal_code: ''
+  lat: ''
+  long: ''

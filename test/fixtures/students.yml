@@ -9,3 +9,8 @@ two:
   name: MyString
   lastname: MyString
   birthdate: 2018-03-10
+
+no_data:
+  name: ''
+  lastname: ''
+  birthdate: ''

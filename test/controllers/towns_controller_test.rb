@@ -21,8 +21,17 @@ class TownsControllerTest < ActionController::TestCase
       assert_difference('Town.count') do
         post :create, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
       end
-
       assert_redirected_to town_path(assigns(:town))
+    end
+  end
+
+  test "should not create town" do
+    @town = towns(:void_data)
+    VCR.use_cassette("town_not_should") do
+      assert_no_difference('Town.count') do
+        post :create, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
+      end
+      assert_response :success
     end
   end
 
@@ -48,6 +57,14 @@ class TownsControllerTest < ActionController::TestCase
     VCR.use_cassette("town_should_update") do
       patch :update, id: @town, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
       assert_redirected_to town_path(assigns(:town))
+    end
+  end
+
+  test "should not update town" do
+    VCR.use_cassette("town_bad_should_update") do
+      @town = towns(:void_data)
+      patch :update, id: @town, town: { lat: @town.lat, long: @town.long, name: @town.name, postal_code: @town.postal_code }
+      assert_response :success
     end
   end
 

@@ -24,6 +24,14 @@ class StudentsControllerTest < ActionController::TestCase
     assert_redirected_to student_path(assigns(:student))
   end
 
+  test "should not create student" do
+    @student = students(:no_data)
+    assert_no_difference('Student.count') do
+      post :create, student: { birthdate: @student.birthdate, lastname: @student.lastname, name: @student.name }
+    end
+    assert_response :success
+  end
+
   test "should show student" do
     get :show, id: @student
     assert_response :success
@@ -37,6 +45,12 @@ class StudentsControllerTest < ActionController::TestCase
   test "should update student" do
     patch :update, id: @student, student: { birthdate: @student.birthdate, lastname: @student.lastname, name: @student.name }
     assert_redirected_to student_path(assigns(:student))
+  end
+
+  test "should not update student" do
+    @student = students(:no_data)
+    patch :update, id: @student, student: { birthdate: @student.birthdate, lastname: @student.lastname, name: @student.name }
+    assert_response :success
   end
 
   test "should destroy student" do
