@@ -26,30 +26,13 @@ class TownsController < ApplicationController
   # POST /towns.json
   def create
     @town = Town.new(town_params)
-
-    respond_to do |format|
-      if @town.save
-        format.html { redirect_to @town, notice: 'Town was successfully created.' }
-        format.json { render :show, status: :created, location: @town }
-      else
-        format.html { render :new }
-        format.json { render json: @town.errors, status: :unprocessable_entity }
-      end
-    end
+    format_creation(@town)
   end
 
   # PATCH/PUT /towns/1
   # PATCH/PUT /towns/1.json
   def update
-    respond_to do |format|
-      if @town.update(town_params)
-        format.html { redirect_to @town, notice: 'Town was successfully updated.' }
-        format.json { render :show, status: :ok, location: @town }
-      else
-        format.html { render :edit }
-        format.json { render json: @town.errors, status: :unprocessable_entity }
-      end
-    end
+    format_update(@town,town_params)
   end
 
   # DELETE /towns/1
