@@ -1,2 +1,3 @@
 json.partial! "towns/town", town: @town
-json.weather @weather
+json.icon @weather.icon
+json.temperature @weather.temperature
